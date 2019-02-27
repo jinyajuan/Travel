@@ -5,10 +5,10 @@
     </div>
     <div class="header-input">
       <span class="iconfont">&#xe632;</span>
-      输入城市/景点/默认主题
+      <span>输入城市/景点/默认主题</span>
     </div>
     <div class="header-right">
-      城市
+      <span>城市</span>
       <span class="iconfont">&#xe6aa;</span>
     </div>
   </div>
@@ -23,7 +23,7 @@ export default {
 <style scoped lang="stylus">
   @import '~styles/varibles.styl'
 .header{
-  display: flex;
+  display: flex;origin
   line-height: .86rem;
   background-color: $bgColor;
   color: #fff;
