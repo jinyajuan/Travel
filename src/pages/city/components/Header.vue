@@ -22,7 +22,7 @@ export default {
   line-height: .86rem;
   text-align: center;
   color: #ffffff;
-  background-color: red;
+  background-color: $bgColor;
   font-size: .32rem;
 }
   .header-iconfont{
