@@ -32,7 +32,7 @@ export default {
           imgUrl: 'https://userimg.qunarzz.com/imgs/201703/08/C._M0DCiccJVdImZIei480.jpg'
         }, {
           id: '400',
-          imgUrl: 'hhttps://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1805190957,1621072218&fm=27&gp=0.jpg'
+          imgUrl: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1805190957,1621072218&fm=27&gp=0.jpg'
         }, {
           id: '500',
           imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3169300040,1868474930&fm=27&gp=0.jpg'

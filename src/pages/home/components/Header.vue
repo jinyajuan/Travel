@@ -21,9 +21,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-  @import '~styles/varibles.styl'
+@import '~styles/varibles.styl'
 .header{
-  display: flex;origin
+  display: flex;
   line-height: .86rem;
   background-color: $bgColor;
   color: #fff;
