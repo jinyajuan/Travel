@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-      <swiper >
+      <swiper :options="swiperOption">
         <swiper-slide v-for="(page, index) of pages" :key="index">
           <div class="icon" v-for="item of page" :key="item.id">
             <div class="icon-img">
@@ -16,51 +16,14 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data () {
     return {
-      iconList: [
-        {
-          id: '001',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2646117019,715222751&fm=27&gp=0.jpg',
-          desc: '节水图标'
-        }, {
-          id: '002',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2646117019,715222751&fm=27&gp=0.jpg',
-          desc: '节水图标'
-        }, {
-          id: '003',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2646117019,715222751&fm=27&gp=0.jpg',
-          desc: '节水图标'
-        }, {
-          id: '004',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2646117019,715222751&fm=27&gp=0.jpg',
-          desc: '节水图标'
-        }, {
-          id: '005',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2646117019,715222751&fm=27&gp=0.jpg',
-          desc: '节水图标'
-        }, {
-          id: '006',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2646117019,715222751&fm=27&gp=0.jpg',
-          desc: '节水图标'
-        }, {
-          id: '007',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2646117019,715222751&fm=27&gp=0.jpg',
-          desc: '节水图标'
-        }, {
-          id: '008',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2646117019,715222751&fm=27&gp=0.jpg',
-          desc: '节水图标'
-        }, {
-          id: '009',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2646117019,715222751&fm=27&gp=0.jpg',
-          desc: '节水图标'
-        }, {
-          id: '0010',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2646117019,715222751&fm=27&gp=0.jpg',
-          desc: '节水图标'
-        }
-      ]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {

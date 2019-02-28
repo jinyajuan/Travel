@@ -2,7 +2,7 @@
    <div>
      <div class="recommend-title">热销推荐</div>
      <ul>
-       <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+       <li class="item border-bottom" v-for="item of this.recommendList" :key="item.id">
          <img class="item-img" :src="item.imgUrl" alt="">
          <div class="item-info">
            <p class="item-title">{{item.title}}</p>
@@ -17,36 +17,11 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    recommendList: Array
+  },
   data () {
     return {
-      recommendList: [
-        {
-          id: '0001',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=214975775,4001050315&fm=27&gp=0.jpg',
-          title: '最美沙滩',
-          desc: '大连浪费主题海滩首站，浪漫主题公园'
-        }, {
-          id: '0002',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=214975775,4001050315&fm=27&gp=0.jpg',
-          title: '最美沙滩',
-          desc: '大连浪费主题海滩首站，浪漫主题公园'
-        }, {
-          id: '0003',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=214975775,4001050315&fm=27&gp=0.jpg',
-          title: '最美沙滩',
-          desc: '大连浪费主题海滩首站，浪漫主题公园'
-        }, {
-          id: '0004',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=214975775,4001050315&fm=27&gp=0.jpg',
-          title: '最美沙滩',
-          desc: '大连浪费主题海滩首站，浪漫主题公园'
-        }, {
-          id: '0005',
-          imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=214975775,4001050315&fm=27&gp=0.jpg',
-          title: '最美沙滩',
-          desc: '大连浪费主题海滩首站，浪漫主题公园'
-        }
-      ]
     }
   }
 }
