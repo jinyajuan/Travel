@@ -89,6 +89,9 @@ export default {
   padding-bottom: 50%;
   /*background-color: green;*/
 }
+  .icons{
+    margin-top: .2rem;
+  }
   .icon{
     position: relative;
     overflow: hidden;
