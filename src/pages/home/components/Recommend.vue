@@ -56,6 +56,7 @@ export default {
   @import '~styles/mixins.styl'
 .recommend-title{
   margin-top: .2rem;
+  font-weight: bolder;
   line-height: .8rem;
   background-color: #eee;
   text-indent: .2rem;
