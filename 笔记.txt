@@ -1,0 +1,142 @@
+index.html    首页的模板文件
+static文件夹   静态的资源
+src文件夹       整个项目的源代码
+main.js          项目的入口文件
+app.vue        项目的根组件
+router           项目所有的路由
+components   项目用到的小组件
+assets             项目用到的图片
+
+config            项目的配置文件
+index.js           基础配置信息
+dev.env.js        开发环境的配置信息
+prod.env.js      线上环境的配置信息
+build文件夹      webpack打包的配置信息
+
+
+路由：路由就是根据网址的不同返回不同的内容给用户
+<router-view/> 显示的是当前路由地址所对应的内容
+@符    src目录
+
+多页应用
+页面跳转——>返回HTML
+特点：只发送一个http请求
+优点：首屏事件快，SEO效果好
+缺点：页面切换慢
+
+单页应用
+页面跳转——>js渲染
+特点：js将当前页面的DOM元素删除，再将新的DOM元素渲染出来，当页面做跳转的时候，不需要做HTML的请求，节约了http请求和发送。
+优点：页面切换速度快
+缺点：首屏时间稍慢，seo差
+
+
+
+
+vuex      可以理解为一个仓库
+state:     所有的公用数据都存放在state之中，如果一个组件想用state，直接调用即可
+Actions：放置异步操作，复杂的同步操作和一些批量的同步操作
+Mutations：Mutations中放的是一个一个对state的同步的修改
+
+有的时候，我们需要改变state中的数据，不能直接让组件去修改数据，需要走一个流程
+这个流程是这样的，如果我们有一些异步操作，我们将这个异步操作放在Actions里面，或者复杂的同步操作和一些批量的同步操作，也可以放在action中，组件先去调用Actions，Actions去调用Mutations（Mutations中放的是一个一个对state的同步的修改）,只有通过Mutations,才可以改变公用数据的值。
+
+有时候，我们可以略过Actions，直接去调用Mutations去修改state里面的数据，
+需要注意的是，当组件调用Actions的时候，我们调用的是dispatch方法来操作Actions，当组件去调用Mutations或者Actions去调用Mutations的时候，我们需要commit方法来操作Mutations，
+
+vuex的大致内容就这么多，实际上他就是一个单向数据的改变流程，
+改变数据呢，就是先调用Actions，再调用Mutations，去改变State的数据 ，当数据发生变化的时候，组件上面展示的内容也会发生改变
+
+
+当然，在使用vuex的时候，我们也可以使用Devtools(也就是开发者工具)，帮助我们进行代码的调试
+
+
+
+使用vuex的时候，
+1.在src目录下创建一个store文件夹，然后在里面新建一个index.js文件，代码如下：
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    city: '北京'
+  }
+})
+
+2.在入口文件main.js中引入store，并且在new Vue中添加store，如下：
+import store from './store/index'
+
+new Vue({
+  store
+})
+
+3.在组件中使用，使用差值表达式
+<span>{{this.$store.state.city}}</span>
+注意：this.$store获取到store，store里面有一个state（公用数据）
+
+4.点击修改数据，需要传入数据
+<div @click="handleCityClick(item.name)">{{item.name}}</div>
+
+5.在4操作对应的组件下面编写方法，需要使用dispatch派发一个changeCity的函数
+methods: {
+    handleCityClick (city) {
+      this.$store.dispatch('changeCity', city)
+    }
+  },
+
+6.在store文件夹下面的index.js文件中，在actions中编写传入的函数，如下修改
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    city: '上海'
+  },
+  actions: {
+    changeCity (ctx, city) {
+      ctx.commit('changeCity', city)
+    }
+  },
+  mutations: {
+    changeCity (state, city) {
+      state.city = city
+    }
+  }
+})
+
+——————————————————————————————————
+实现页面跳转
+1.使用router-link
+2.this.$router.push('/')
+
+
+——————————————————————————————————
+vuex的高级写法
+当一个组件需要获取多个状态时候，将这些状态都声明为计算属性会有些重复和冗余。为了解决这个问题，我们可以使用 mapState 辅助函数帮助我们生成计算属性
+1.引入 
+import { mapState, mapMutations } from 'vuex'
+2.计算属性
+ computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
+  }
+3.使用：
+{{this.currentCity}}
+
+
+——————————————————————————————————
+使用keep alive进行性能优化
+
+
+
+
+
+
+
+
+
