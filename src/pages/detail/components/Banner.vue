@@ -1,16 +1,18 @@
 <template>
   <div>
     <div class="banner" @click="handleGallaryClick">
-      <img class="banner-img" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=935292084,2640874667&fm=27&gp=0.jpg" alt="">
+      <img class="banner-img" :src="this.bannerImg" alt="">
       <div class="banner-info">
-        <div class="banner-title">大连圣亚海洋世界(AAAA景区)</div>
+        <div class="banner-title">{{this.sightName}}</div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe608;</span>
-          39
+          {{this.gallaryImgs.length}}
         </div>
       </div>
     </div>
-    <common-gallary :imgs="imgs" v-show="show" @close="handleGallaryClolse"></common-gallary>
+    <common-gallary :gallaryImgs="gallaryImgs"
+                    v-show="show"
+                    @close="handleGallaryClolse"></common-gallary>
   </div>
 </template>
 
@@ -21,10 +23,14 @@ export default {
   components: {
     CommonGallary
   },
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data () {
     return {
-      show: false,
-      imgs: ['https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2781242817,1385549877&fm=27&gp=0.jpg', 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2292714402,4282228802&fm=27&gp=0.jpg']
+      show: false
     }
   },
   methods: {
